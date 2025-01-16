@@ -8,10 +8,19 @@ terraform {
   }
 }
 
-# Authenticate with Cluster Admin Cloud Key
+data "terraform_remote_state" "compute-pool" {
+  backend = "local"
+  config = {
+    path = "../compute-pool/terraform.tfstate"
+  }
+}
+
 provider "confluent" {
-  cloud_api_key    = var.cloud_api_key
-  cloud_api_secret = var.cloud_api_secret
-  organization_id  = var.org_id
-  environment_id   = var.environment_id
+  organization_id       = var.org_id
+  environment_id        = var.environment_id
+  flink_compute_pool_id = data.terraform_remote_state.compute-pool.outputs.pool-id
+  flink_rest_endpoint   = data.terraform_remote_state.compute-pool.outputs.pool-rest-endpoint
+  flink_api_key         = var.flink_api_key
+  flink_api_secret      = var.flink_api_secret
+  flink_principal_id    = var.flink_sa_id
 }

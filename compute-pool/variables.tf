@@ -10,22 +10,17 @@ variable "cloud_api_secret" {
   sensitive = true
 }
 
-variable "org_id" {
-  description = "CC Organization"
-  type = string
-}
-
 variable "environment_id" {
   description = "CC Environment"
   type = string
 }
 
-variable "environment_name" {
-  description = "Name of the environment"
+variable "cloud" {
+  description = "Cloud"
   type = string
 }
 
-variable "cluster_name" {
-  description = "Name of the CC cluster"
+variable "region" {
+  description = "Cloud region"
   type = string
 }
