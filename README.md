@@ -41,6 +41,8 @@ For the Service Account, grant the following roles:
 - **ResourceOwner** to topics with the prefix `orders` (assuming the SA owns the application).
 - **DeveloperWrite** to Transactional IDs with the prefix `_confluent-flink_`.
 
+Why Transactional ID? According to the [documentation](https://docs.confluent.io/cloud/current/flink/concepts/delivery-guarantees.html), Flink writes to Kafka using transactions by default.
+
 ## Step 2 - Develop the Statement
 
 Start by querying the topic and filtering for `orderunits > 5`. Use the following SQL statement:
