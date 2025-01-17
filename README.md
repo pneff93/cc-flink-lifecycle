@@ -107,3 +107,12 @@ confluent_flink_compute_pool_utilization_cfu_limit{compute_pool_id="lfcp-539kx8"
 ```
 
 This data includes key performance and resource metrics related to your Flink statements and compute pool. You can use these metrics to monitor the performance of your Flink jobs.
+
+## Step 5 - Set Up Alerting
+
+A great overview of possible Flink alerts is provided in [Best practices for alerting](https://docs.confluent.io/cloud/current/flink/operate-and-deploy/monitor-statements.html#best-practices-for-alerting).
+
+
+
+
+
